@@ -13,12 +13,11 @@
     --ff-text: "Raleway";
     --ff-hd: var(--ff-text);
 
-    --fs-text: 16px;
-    --fs-text-sm: 14px;
-    --fs-text-lg: 22px;
+    --fs-text: 14px;
+    --fs-text-sm: 12px;
+    --fs-text-lg: 16px;
+    --fs-text-xl: 18px;
     --lh-text: 1.5;
-
-    --fs-h1: 40px;
 
     --fw-light: 300;
     --fw-regular: 400;
@@ -31,9 +30,16 @@
     --clr-text: white;
     --clr-hd: black;
     --bg-page: #333;
+    --clr-red: lightcoral;
 }
 
 header .logo-wrapper img {
     height: 48px;
 }
 
+h3 {
+    font-size: 1.5rem;
+}
+h4 {
+    font-size: var(--fs-text-lg);
+}

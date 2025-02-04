@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="scripts/templates.js"></script>
+    <script src="script.js"></script>
     <title>Projekte</title>
 </head>
 
@@ -32,7 +34,7 @@
                     <div class="book-metas">
                         <div class="book-meta-header flex-row gap justify-between mb">
                             <div class="book-price">19.99 €</div>
-                            <div class="book-likes">1250 Likes <img src="" alt=""></div>
+                            <div class="book-likes">1250 <img src="assets/icons/favorite-g-red.svg" alt="heart-icon" class="favorite-icon"></div>
                         </div>
                         <table>
                             <tr>
@@ -51,16 +53,17 @@
                         <hr class="mt">
                     </div>
                     <div class="book-comments">
-                        <h4>Kommentare :</h4>
+                        <h4 class="mb-05">Kommentare :</h4>
                         <table>
                             <tr>
                                 <td>User :</td>                                
                                 <td>Comment....</td>
                             </tr>
                         </table>
-                        <form class="mt-05">
-                            <input type="text" placeholder="Schreibe deinen Kommentar...">
-                            <button><img src="" alt=""></button>
+                        <form class="mt-05 flex-row gap-05 justify-between">
+                            <label for="comment" class="hide">Dein Kommentar :</label>
+                            <input type="text" name="comment" placeholder="Schreibe deinen Kommentar...">
+                            <button type="submit"><img src="assets/icons/send-g.svg" alt="send-icon"></button>
                         </form>
                     </div>
 

@@ -2,7 +2,27 @@ hr {
     border-color: #666;
 }
 
+/*** FORM */
+input[type="text"] {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 100%;
+    background-color: unset;
+    border: solid 1px #666;
+    border-radius: 3px;
+}
+.book-wrapper form input {
+    border-top: none;
+    border-left: none;
+    border-top-right-radius: 0;
+}
+.book-wrapper form button img {
+    height: 32px;
+}
+
+/*** BOOK */
 .book-wrapper {
+    min-width: 280px;
     width: 33%;
     padding: 24px 20px;
     border: solid 1px #666;
@@ -13,16 +33,26 @@ hr {
     width: 100%;
     object-fit: cover;
 }
-.book-metas .price-likes {
-    margin-bottom: 16px;
+.book-price {
+    font-size: var(--fs-text-xl);
+    font-weight: var(--fw-bold);
+    color: var(--clr-red);
 }
-.book-metas .price {
-    font-weight: bold;
+.book-likes {
+    color: var(--clr-red);
+}
+.favorite-icon {
+    margin-left: 8px;
+    margin-bottom: -7px;
 }
 /* .book-metas tr:not(.price-likes) td:first-of-type {
     font-weight: bold;
 } */
-:is(.book-metas, .book-comments) td:first-of-type {
-    font-weight: bold;
+.book-wrapper td:first-of-type {
+    font-weight: var(--fw-bold);
     width: 160px;
 }
+.book-comments td:first-of-type {
+    font-weight: var(--fw-regular);
+}
+
