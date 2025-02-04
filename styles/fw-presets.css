@@ -108,12 +108,12 @@ a:not(.button, .btn-default):hover {
     padding: 0;
     cursor: pointer;
 }
-/* :where(ul) {
+:where(ul) {
     list-style-type: none;
     margin-block-start: 0;
     margin-block-end: 0;
     padding-inline-start: 0;
-} */
+}
 :where(li) {
     margin-bottom: 0.5em;
 }
@@ -133,4 +133,7 @@ a:not(.button, .btn-default):hover {
     bottom: 0;
     text-align: center;
     justify-content: center;
+}
+hr {
+    width: 100%;
 }

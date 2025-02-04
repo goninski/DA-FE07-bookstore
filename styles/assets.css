@@ -1,0 +1,28 @@
+hr {
+    border-color: #666;
+}
+
+.book-wrapper {
+    width: 33%;
+    padding: 24px 20px;
+    border: solid 1px #666;
+    border-radius: 9px;
+}
+.book-cover {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+.book-metas .price-likes {
+    margin-bottom: 16px;
+}
+.book-metas .price {
+    font-weight: bold;
+}
+/* .book-metas tr:not(.price-likes) td:first-of-type {
+    font-weight: bold;
+} */
+:is(.book-metas, .book-comments) td:first-of-type {
+    font-weight: bold;
+    width: 160px;
+}
