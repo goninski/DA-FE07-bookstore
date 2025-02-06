@@ -11,19 +11,17 @@ input[type="text"] {
     border: solid 1px #666;
     border-radius: 3px;
 }
-.book-wrapper form input {
+.book-item form input {
     border-top: none;
     border-left: none;
     border-top-right-radius: 0;
 }
-.book-wrapper form button img {
+.book-item form button img {
     height: 32px;
 }
 
 /*** BOOK */
-.book-wrapper {
-    min-width: 280px;
-    width: 33%;
+.book-item {
     padding: 24px 20px;
     border: solid 1px #666;
     border-radius: 9px;
@@ -38,21 +36,31 @@ input[type="text"] {
     font-weight: var(--fw-bold);
     color: var(--clr-red);
 }
-.book-likes {
+.book-likes-wrapper {
     color: var(--clr-red);
 }
-.favorite-icon {
+.book-like-icon {
     margin-left: 8px;
     margin-bottom: -7px;
 }
 /* .book-metas tr:not(.price-likes) td:first-of-type {
     font-weight: bold;
 } */
-.book-wrapper td:first-of-type {
+.book-item td:first-of-type {
     font-weight: var(--fw-bold);
-    width: 160px;
+    padding-right: var(--sp-10);
 }
 .book-comments td:first-of-type {
     font-weight: var(--fw-regular);
 }
+.book-comments-listing-wrapper {
+    max-height: 200px;
+    overflow: auto;
+}
 
+
+/***** BREAKPOINTS */
+@media(max-width: 719px) {
+    .book-item td:first-of-type {
+    }
+}
