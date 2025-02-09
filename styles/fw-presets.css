@@ -20,10 +20,14 @@
     --icon-multipl: 1;
 
 }
+@media(max-width: 939px) {
+    :root {
+        --col-min-width: 280px;
+    }
+}
 @media(max-width: 719px) {
     :root {
         --pad-x-sec: 24px;
-        --col-min-width: 280px;
     }
 }
 @media(max-width: 359px) {
@@ -133,6 +137,9 @@ a {
     text-align: center;
     justify-content: center;
 }
-hr {
+:where(hr) {
     width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
+ 

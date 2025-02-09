@@ -1,5 +1,9 @@
 /***** FRAMEWORK UTILITY CLASSES */
 
+.grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--col-min-width), 100%), 1fr));
+}
 .flex-col {
     display: flex;
     flex-direction: column;
@@ -15,11 +19,6 @@
 .flex-wrap {
     flex-wrap: wrap;
 }
-.grid-auto {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--col-min-width), 100%), 1fr));
-}
-
 .justify-center {
     justify-content: center;
 }
@@ -71,9 +70,6 @@
     margin-top: auto;
     margin-bottom: auto;
 }
-.text-center {
-    text-align: center;
-}
 .hide {
     display: none !important;
 }
@@ -94,8 +90,9 @@
 .uppercase {
     text-transform: uppercase;
 }
-
-
+.text-center {
+    text-align: center;
+}
 
 
 
