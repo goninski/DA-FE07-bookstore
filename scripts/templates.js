@@ -17,7 +17,7 @@ function getBookItemTemplate(bookIndex) {
             <div class="book-meta-header flex-row gap justify-between mb">
                 <div class="book-price">${bookPrice} €</div>
                 <div class="book-likes-wrapper">${bookLikes}
-                    <img src="assets/icons/favorite-${bookLikeStatus}.svg" alt="heart-icon" id="bookLikeIcon-${bookIndex}" class="book-like-icon" onclick="toggleLikeStatus(${bookIndex}, ${bookLikeStatus})">
+                    <img src="assets/icons/favorite-${bookLikeStatus}.svg" alt="heart-icon" id="bookLikeIcon-${bookIndex}" class="book-like-icon" onclick="toggleLikeStatus(${bookIndex})">
                 </div>
             </div>
             <table>

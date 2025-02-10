@@ -63,18 +63,20 @@ function saveLikedBookToStorage(bookIndex, bookLikeStatus) {
     bookTitleLiked = books[bookIndex].name;
     bookTitlesLiked = getLikedBooksFromStorage();
     let index = -1;
-    // let exists = false;
     if(bookTitlesLiked.length > 0) {
         index = bookTitlesLiked.indexOf(bookTitleLiked);
-        // exists = bookTitlesLiked.includes(bookTitleLiked);
     }
+
+    console.log(bookTitlesLiked);
+    console.log('name: ' + bookTitleLiked);
+    console.log('index: ' + index + ' / book-index: ' + bookIndex);
+    
     if(bookLikeStatus) {
         if (index < 0) {
             bookTitlesLiked.push(bookTitleLiked);
         }
     } else {
         if (index >= 0) {
-            // let index = bookTitlesLiked.indexOf(bookTitleLiked);
             bookTitlesLiked.splice(index);
         }
     }
