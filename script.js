@@ -7,37 +7,38 @@ function renderBody() {
 }
 
 function renderBooks() {
-    setLikedBooksFromStorage();
+    updateBookLikesFromStorage();
     let booksListingRef = '';
-    let bookCommentsListingRef = '';
     booksListingRef = document.getElementById('booksListing');
     for (bookIndex = 0; bookIndex < books.length; bookIndex++) {
-        bookLikeStatus = books[bookIndex].liked;
-        saveLikedBookToStorage(bookIndex, bookLikeStatus);
         booksListingRef.innerHTML += getBookItemTemplate(bookIndex);
-        bookComments = books[bookIndex].comments;
-        bookCommentsListingRef = document.getElementById('bookCommentsListing-' + bookIndex);
-            for (let commentIndex = 0; commentIndex < bookComments.length; commentIndex++) {
-                bookCommentsListingRef.innerHTML += getBookCommentsTemplate(bookIndex, bookComments, commentIndex);
-            }
+        renderBookComments(bookIndex);
     }
 }
 
-function setLikedBooksFromStorage() {
-    bookTitlesLiked = getLikedBooksFromStorage();;
-    if(bookTitlesLiked && bookTitlesLiked.length > 0) {
-        for (let index = 0; index < bookTitlesLiked.length; index++) {
-            bookIndex = books.findIndex(element => {return element.name == bookTitlesLiked});
-            if(bookIndex >= 0) {
-                books[bookIndex].liked = true;
-            }
+function renderBookComments(bookIndex) {
+    bookComments = books[bookIndex].comments;
+    let bookCommentsListingRef = document.getElementById('bookCommentsListing-' + bookIndex);
+        for (let commentIndex = 0; commentIndex < bookComments.length; commentIndex++) {
+            bookCommentsListingRef.innerHTML += getBookCommentsTemplate(bookIndex, bookComments, commentIndex);
         }
-    } else {
+}
+
+function updateBookLikesFromStorage() {
+    bookTitlesLiked = getBookLikesFromStorage();
+    if( bookTitlesLiked.length == 0) {
         bookTitlesLiked = [];
+        return bookTitlesLiked;
+    }
+    for (let index = 0; index < bookTitlesLiked.length; index++) {
+        bookIndex = books.findIndex(element => element.name === bookTitlesLiked[index]);
+        if(bookIndex >= 0) {
+            books[bookIndex].liked = true;
+        }
     }
 }
 
-function getLikedBooksFromStorage() {
+function getBookLikesFromStorage() {
     storageStr = localStorage.getItem("bookTitlesLiked");
     bookTitlesLiked = JSON.parse(storageStr);
     if(! bookTitlesLiked) {
@@ -46,7 +47,7 @@ function getLikedBooksFromStorage() {
     return bookTitlesLiked;
 }
 
-function toggleLikeStatus(bookIndex) {
+function toggleBookLikeStatus(bookIndex) {
     bookLikeStatus = books[bookIndex].liked;
     if(bookLikeStatus) {
         bookLikeStatus = false;
@@ -54,30 +55,41 @@ function toggleLikeStatus(bookIndex) {
         bookLikeStatus = true;
     }
     books[bookIndex].liked = bookLikeStatus;
-    saveLikedBookToStorage(bookIndex, bookLikeStatus);
+    saveBookLikesToStorage(bookIndex, bookLikeStatus);
+    toggleBookLikeIcon(bookIndex, bookLikeStatus);
+    toggleBookLikeQty(bookIndex, bookLikeStatus);
+}
+
+function toggleBookLikeQty(bookIndex, bookLikeStatus) {
+    bookLikes = books[bookIndex].likes;
+    let qty = -1;
+    if(bookLikeStatus) {
+            qty = 1;
+    }
+    bookLikes = bookLikes + qty;
+    books[bookIndex].likes = bookLikes
+    document.getElementById('bookLikes-' + bookIndex).innerHTML = bookLikes;
+}
+
+function toggleBookLikeIcon(bookIndex, bookLikeStatus) {
     let imgSource = 'assets/icons/favorite-' + bookLikeStatus + '.svg';
     document.getElementById('bookLikeIcon-' + bookIndex).src = imgSource;
 }
 
-function saveLikedBookToStorage(bookIndex, bookLikeStatus) {
+function saveBookLikesToStorage(bookIndex, bookLikeStatus) {
     bookTitleLiked = books[bookIndex].name;
-    bookTitlesLiked = getLikedBooksFromStorage();
+    bookTitlesLiked = getBookLikesFromStorage();
     let index = -1;
     if(bookTitlesLiked.length > 0) {
         index = bookTitlesLiked.indexOf(bookTitleLiked);
     }
-
-    console.log(bookTitlesLiked);
-    console.log('name: ' + bookTitleLiked);
-    console.log('index: ' + index + ' / book-index: ' + bookIndex);
-    
     if(bookLikeStatus) {
         if (index < 0) {
             bookTitlesLiked.push(bookTitleLiked);
         }
     } else {
         if (index >= 0) {
-            bookTitlesLiked.splice(index);
+            bookTitlesLiked.splice(index, 1);
         }
     }
     localStorage.setItem("bookTitlesLiked", JSON.stringify(bookTitlesLiked));

@@ -8,16 +8,17 @@ function getBookItemTemplate(bookIndex) {
     bookLikeStatus = books[bookIndex].liked;
     return `
     <div class="book-item flex-col gap">
-        <div class="book-header flex-col gap">
-            <img src="assets/img/open-book-illustration-PB4109187-red-512.png" alt="open-book-illustration" class="book-cover mt">
+        <div class="book-header flex-col align-center gap">
+            <img src="assets/img/open-book-illustration-PB4109187-red-512.png" alt="open-book-illustration" class="book-cover mt mb">
             <h3 class="text-center">${bookTitle}</h3>
         </div>
         <hr>
         <div class="book-metas">
             <div class="book-meta-header flex-row gap justify-between mb">
                 <div class="book-price">${bookPrice} €</div>
-                <div class="book-likes-wrapper">${bookLikes}
-                    <img src="assets/icons/favorite-${bookLikeStatus}.svg" alt="heart-icon" id="bookLikeIcon-${bookIndex}" class="book-like-icon" onclick="toggleLikeStatus(${bookIndex})">
+                <div class="book-likes-wrapper flex-row align-center">
+                    <div id="bookLikes-${bookIndex}" class="book-likes">${bookLikes}</div>
+                    <img src="assets/icons/favorite-${bookLikeStatus}.svg" alt="heart-icon" id="bookLikeIcon-${bookIndex}" class="book-like-icon" onclick="toggleBookLikeStatus(${bookIndex})">
                 </div>
             </div>
             <table>
