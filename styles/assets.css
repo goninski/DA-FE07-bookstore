@@ -4,29 +4,47 @@ hr {
 
 /*** FORM */
 input[type="text"] {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 8px 12px;
     width: 100%;
+    color: var(--clr-text);
     background-color: hsla(0, 68%, 63%, 0.3);
-    border: solid 1px #666;
+    border: solid 1px #ad5252;
     border-radius: 3px;
-    text-indent: 1rem;
+}
+input[type="text"]:focus {
+    border-color: white;
+}
+input::placeholder {
+    color: var(--clr-text);
+    opacity: 0.5;
+    font-weight: var(--fw-regular);
+}
+input:focus-visible {
+    outline: none;
 }
 .book-comment-input-wrapper input {
     border-top: none;
     border-left: none;
     border-top-right-radius: 0;
 }
-.book-comment-input-wrapper img {
-    height: 32px;
+.book-comment-input-wrapper button svg {
+    height: 32px !important;
+    width: auto !important;
+}
+.book-comment-input-wrapper button svg {
+    transition: 0.35s;
+}
+.book-comment-input-wrapper :is(button:hover, button:focus) svg {
+    fill: #ad5252;
 }
 
 /*** BOOK */
 .book-item {
     padding: 20px 16px;
-    border: solid 1px #666;
+    /* border: solid 1px #666; */
     border-radius: 9px;
-    background-color: hsla(0, 68%, 63%, 0.075);
+    background-color: hsla(0, 68%, 63%, 0.1);
+    /* box-shadow: 0px 16px 32px 0px rgba(66, 68, 90, 0.8); */
 }
 .book-cover {
     width: 100%;

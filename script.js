@@ -29,10 +29,12 @@ function addBookComment(bookIndex) {
     bookCommentName = "Goninski";
     bookCommentRef = document.getElementById('bookCommentInput-' + bookIndex);
     bookComment = bookCommentRef.value;
-    bookCommentRef.value = '';
-    let obj = {"name": bookCommentName, "comment": bookComment};
-    bookComments.unshift(obj);
-    renderBookComments(bookIndex);
+    if(bookComment) {
+        bookCommentRef.value = '';
+        let obj = {"name": bookCommentName, "comment": bookComment};
+        bookComments.unshift(obj);
+        renderBookComments(bookIndex);
+    }
 }
 
 function updateBookLikesFromStorage() {

@@ -1,3 +1,5 @@
+let iconSend = getIcon('send');
+
 function getBookItemTemplate(bookIndex) {
     bookTitle = books[bookIndex].name;
     bookAuthor = books[bookIndex].author;
@@ -6,6 +8,7 @@ function getBookItemTemplate(bookIndex) {
     bookGenre = books[bookIndex].genre;
     bookLikes = books[bookIndex].likes;
     bookLikeStatus = books[bookIndex].liked;
+   
     return `
     <div class="book-item flex-col gap">
         <div class="book-header flex-col align-center gap">
@@ -37,15 +40,15 @@ function getBookItemTemplate(bookIndex) {
             </table>
         </div>
         <hr>
-        <div class="book-comments flex-col flex-grow justify-between">
+        <div class="book-comments flex-col flex-grow">
             <h4 class="mb-05">Kommentare </h4>
-            <div class="book-comments-listing-wrapper">
+            <div class="book-comments-listing-wrapper flex-grow">
                 <table id="bookCommentsListing-${bookIndex}"></table>
             </div>
             <div class="book-comment-input-wrapper mt-20 flex-row gap-05 justify-between">
                 <label for="comment" class="hide">Dein Kommentar :</label>
-                <input type="text" name="comment" placeholder="Schreibe deinen Kommentar..." id="bookCommentInput-${bookIndex}">
-                <button><img src="assets/icons/send.svg" alt="send-icon" onclick="addBookComment(${bookIndex})"></button>
+                <input type="text" name="comment" placeholder="Schreibe deinen Kommentar..." id="bookCommentInput-${bookIndex}" required>
+                <button title="Kommentar übermitteln" onclick="addBookComment(${bookIndex})">${iconSend}</button>
             </div>
         </div>
     </div>
@@ -63,11 +66,11 @@ function getBookCommentsTemplate(bookIndex, bookComments, commentIndex) {
     `;
 }
 
-function getIcon(type) {
+function getIcon(type, fill = '#724444') {
     switch (type) {
-        case 'like':
+        case 'send':
             return `
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="${fill}"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
             `;
     }
 }
