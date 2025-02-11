@@ -30,10 +30,10 @@ function addBookComment(bookIndex) {
     bookCommentRef = document.getElementById('bookCommentInput-' + bookIndex);
     bookComment = bookCommentRef.value;
     if(bookComment) {
-        bookCommentRef.value = '';
         let obj = {"name": bookCommentName, "comment": bookComment};
         bookComments.unshift(obj);
         renderBookComments(bookIndex);
+        bookCommentRef.value = '';
     }
 }
 
