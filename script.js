@@ -1,6 +1,5 @@
 let bookTitleLiked = '';
 let bookTitlesLiked = [];
-let storageStr = '';
 
 function renderBody() {
     renderBooks();
@@ -8,8 +7,8 @@ function renderBody() {
 
 function renderBooks() {
     updateBookLikesFromStorage();
-    let booksListingRef = '';
-    booksListingRef = document.getElementById('booksListing');
+    let booksListingRef = document.getElementById('booksListing');
+    booksListingRef.innerHTML = '';
     for (bookIndex = 0; bookIndex < books.length; bookIndex++) {
         booksListingRef.innerHTML += getBookItemTemplate(bookIndex);
         renderBookComments(bookIndex);
@@ -19,9 +18,21 @@ function renderBooks() {
 function renderBookComments(bookIndex) {
     bookComments = books[bookIndex].comments;
     let bookCommentsListingRef = document.getElementById('bookCommentsListing-' + bookIndex);
-        for (let commentIndex = 0; commentIndex < bookComments.length; commentIndex++) {
-            bookCommentsListingRef.innerHTML += getBookCommentsTemplate(bookIndex, bookComments, commentIndex);
-        }
+    bookCommentsListingRef.innerHTML = '';
+    for (let commentIndex = 0; commentIndex < bookComments.length; commentIndex++) {
+        bookCommentsListingRef.innerHTML += getBookCommentsTemplate(bookIndex, bookComments, commentIndex);
+    }
+}
+
+function addBookComment(bookIndex) {
+    bookComments = books[bookIndex].comments;
+    bookCommentName = "Goninski";
+    bookCommentRef = document.getElementById('commentInput-' + bookIndex);
+    bookComment = bookCommentRef.value;
+    bookCommentRef.value = '';
+    let obj = {"name": bookCommentName, "comment": bookComment};
+    bookComments.unshift(obj);
+    renderBookComments(bookIndex);
 }
 
 function updateBookLikesFromStorage() {
@@ -39,7 +50,7 @@ function updateBookLikesFromStorage() {
 }
 
 function getBookLikesFromStorage() {
-    storageStr = localStorage.getItem("bookTitlesLiked");
+    let storageStr = localStorage.getItem("bookTitlesLiked");
     bookTitlesLiked = JSON.parse(storageStr);
     if(! bookTitlesLiked) {
         bookTitlesLiked = [];
@@ -94,4 +105,3 @@ function saveBookLikesToStorage(bookIndex, bookLikeStatus) {
     }
     localStorage.setItem("bookTitlesLiked", JSON.stringify(bookTitlesLiked));
 }
-
