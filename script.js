@@ -27,7 +27,7 @@ function renderBookComments(bookIndex) {
 function addBookComment(bookIndex) {
     bookComments = books[bookIndex].comments;
     bookCommentName = "Goninski";
-    bookCommentRef = document.getElementById('commentInput-' + bookIndex);
+    bookCommentRef = document.getElementById('bookCommentInput-' + bookIndex);
     bookComment = bookCommentRef.value;
     bookCommentRef.value = '';
     let obj = {"name": bookCommentName, "comment": bookComment};

@@ -16,18 +16,20 @@
     --sp-80: 120px;
     --sp-90: 150px;
 
-    --col-min-width: 312px;
+    --col-min-width: 300px;
     --icon-multipl: 1;
 
 }
 @media(max-width: 939px) {
-    :root {
-        --col-min-width: 280px;
-    }
 }
 @media(max-width: 719px) {
     :root {
         --pad-x-sec: 24px;
+    }
+}
+@media(max-width: 511px) {
+    :root {
+        --col-min-width: 280px;
     }
 }
 @media(max-width: 359px) {

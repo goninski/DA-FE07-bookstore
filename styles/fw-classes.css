@@ -110,7 +110,7 @@
 .pad-y-sec-xs {
     padding: var(--pad-y-sec-xs) var(--pad-y-sec-xs);
 }
-.pad-y{
+.pad-y {
     padding-top: var(--sp-10);
     padding-bottom: var(--sp-10);
 }
@@ -128,8 +128,15 @@
 }
 
 /*** MARGIN TOP/BOTTOM */
+.m-y-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .mt {
     margin-top: var(--sp-10);
+}
+.mt-05 {
+    margin-top: 0;
 }
 .mt-05 {
     margin-top: var(--sp-05);
@@ -146,6 +153,9 @@
 
 .mb {
     margin-bottom: var(--sp-10);
+}
+.mb-0 {
+    margin-bottom: 0;
 }
 .mb-05 {
     margin-bottom: var(--sp-05);
@@ -207,7 +217,7 @@
 /*** BREAKPOINTS */
 
 @media(max-width: 719px) {
-    .flex-row {
+    .flex-wrap--ss-mob {
         flex-wrap: wrap;
     }
 }

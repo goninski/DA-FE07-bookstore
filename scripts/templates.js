@@ -9,8 +9,8 @@ function getBookItemTemplate(bookIndex) {
     return `
     <div class="book-item flex-col gap">
         <div class="book-header flex-col align-center gap">
-            <img src="assets/img/open-book-illustration-PB4109187-red-512.png" alt="open-book-illustration" class="book-cover mt mb">
-            <h3 class="text-center">${bookTitle}</h3>
+            <img src="assets/img/open-book-illustration-PB4109187-red-512.png" alt="open-book-illustration" class="book-cover mt">
+            <div class="book-title-wrapper flex-col justify-center"><h3 class="text-center">${bookTitle}</h3></div>
         </div>
         <hr>
         <div class="book-metas">
@@ -42,9 +42,9 @@ function getBookItemTemplate(bookIndex) {
             <div class="book-comments-listing-wrapper">
                 <table id="bookCommentsListing-${bookIndex}"></table>
             </div>
-            <div class="mt-20 flex-row gap-05 justify-between">
+            <div class="book-comment-input-wrapper mt-20 flex-row gap-05 justify-between">
                 <label for="comment" class="hide">Dein Kommentar :</label>
-                <input type="text" id="commentInput-${bookIndex}" name="comment" placeholder="Schreibe deinen Kommentar...">
+                <input type="text" name="comment" placeholder="Schreibe deinen Kommentar..." id="bookCommentInput-${bookIndex}">
                 <button><img src="assets/icons/send.svg" alt="send-icon" onclick="addBookComment(${bookIndex})"></button>
             </div>
         </div>

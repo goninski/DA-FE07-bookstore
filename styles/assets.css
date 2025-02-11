@@ -12,12 +12,12 @@ input[type="text"] {
     border-radius: 3px;
     text-indent: 1rem;
 }
-.book-item form input {
+.book-comment-input-wrapper input {
     border-top: none;
     border-left: none;
     border-top-right-radius: 0;
 }
-.book-item form button img {
+.book-comment-input-wrapper img {
     height: 32px;
 }
 
@@ -34,6 +34,10 @@ input[type="text"] {
     height: auto;
     opacity: 0.7;
 }
+.book-title-wrapper {
+    min-height: 52px;
+    vertical-align: middle;
+}
 .book-price {
     font-size: var(--fs-text-xl);
     font-weight: var(--fw-bold);
@@ -48,15 +52,15 @@ input[type="text"] {
     color: red;
     cursor: pointer;
 }
-/* .book-metas tr:not(.price-likes) td:first-of-type {
-    font-weight: bold;
-} */
 .book-item td {
     vertical-align: top;
 }
 .book-item td:first-of-type {
     font-weight: var(--fw-bold);
     padding-right: var(--sp-10);
+}
+.book-comments td {
+    padding-bottom: var(--sp-05);
 }
 .book-comments td:first-of-type {
     font-weight: var(--fw-regular);
@@ -73,7 +77,10 @@ input[type="text"] {
 
 
 /***** BREAKPOINTS */
-@media(max-width: 719px) {
+@media(max-width: 511px) {
     .book-item td:first-of-type {
+        padding-right: var(--sp-05);
+        max-width: 95px;
+        word-wrap: break-word;
     }
 }
