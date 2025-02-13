@@ -24,16 +24,18 @@ function renderBookComments(bookIndex) {
     }
 }
 
-function addBookComment(bookIndex) {
+function addBookComment(bookIndex, event) {
     bookComments = books[bookIndex].comments;
     bookCommentName = "Goninski";
     bookCommentRef = document.getElementById('bookCommentInput-' + bookIndex);
     bookComment = bookCommentRef.value;
     if(bookComment) {
+        bookCommentRef.required = false;
         let obj = {"name": bookCommentName, "comment": bookComment};
         bookComments.unshift(obj);
         renderBookComments(bookIndex);
         bookCommentRef.value = '';
+        event.preventDefault();
     }
 }
 

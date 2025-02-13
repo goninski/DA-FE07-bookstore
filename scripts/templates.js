@@ -45,10 +45,10 @@ function getBookItemTemplate(bookIndex) {
             <div class="book-comments-listing-wrapper flex-grow">
                 <table id="bookCommentsListing-${bookIndex}"></table>
             </div>
-            <form class="book-comment-input-wrapper mt-20 flex-row gap-05 justify-between">
+            <form class="book-comment-input-wrapper mt-20 flex-row gap-05 justify-between" onsubmit="addBookComment(${bookIndex}, event)">
                 <label for="comment" class="hide">Dein Kommentar :</label>
                 <input type="text" name="comment" placeholder="Schreibe deinen Kommentar..." id="bookCommentInput-${bookIndex}" required>
-                <button type="submit" title="Kommentar übermitteln" onclick="addBookComment(${bookIndex})">${iconSend}</button>
+                <button type="submit" title="Kommentar übermitteln">${iconSend}</button>
             </form>
         </div>
     </div>
@@ -59,10 +59,10 @@ function getBookCommentsTemplate(bookIndex, bookComments, commentIndex) {
     bookCommentName = bookComments[commentIndex].name;
     bookComment = bookComments[commentIndex].comment;
     return `
-    <tr>
-    <td>[${bookCommentName}]&nbsp;:</td>                                
-    <td>${bookComment}</td>
-    </tr>
+        <tr>
+        <td>[${bookCommentName}]&nbsp;:</td>                                
+        <td>${bookComment}</td>
+        </tr>
     `;
 }
 
