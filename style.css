@@ -44,8 +44,11 @@ header h1 {
     font-size: 1.5rem;
     margin-bottom: 4px;
 }
-footer {
-
+.footer-links a {
+    color: #ccc;
+}
+.footer-links a:hover {
+    color: var(--clr-text);
 }
 
 h3 {
