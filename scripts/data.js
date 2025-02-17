@@ -1,15 +1,3 @@
-let bookIndex = 0;
-let bookTitle = '';
-let bookAuthor = '';
-let bookPrice = 0;
-let bookPublishedYear = 0;
-let bookGenre = '';
-let bookLikes = 0;
-let bookLikeStatus = false;
-let bookComments = [];
-let bookCommentName = '';
-let bookComment = '';
-
 let books = [
     {
       "name": "Die Geheimnisse des Ozeans",
