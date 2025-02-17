@@ -12,7 +12,7 @@ let bookComment = '';
 let bookTitleLiked = '';
 let bookTitlesLiked = [];
 
-function renderBody() {
+function init() {
     renderBooks();
 }
 
