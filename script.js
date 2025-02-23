@@ -14,6 +14,7 @@ let bookTitlesLiked = [];
 
 function init() {
     renderBooks();
+    setHomeURL();
 }
 
 function renderBooks() {
@@ -119,4 +120,22 @@ function saveBookLikesToStorage(bookIndex, bookLikeStatus) {
         }
     }
     localStorage.setItem("bookTitlesLiked", JSON.stringify(bookTitlesLiked));
+}
+
+function setHomeURL() {
+    let url = new URL(window.location.href);
+    let homeURL = url;
+    console.log(url.hostname);
+    switch(url.hostname) {
+        case "127.0.0.1":
+            homeURL = url.origin + '/' + url.pathname.split("/")[1];
+            break
+        case "francois-gonin.developerakademie.net":
+            homeURL = url.origin + '/' + url.pathname.split("/")[1] + '/' + url.pathname.split("/")[2];
+            break
+        default:
+            homeURL = '/';
+    }
+    let homeLink = document.querySelector('.js-set-home-url');
+    homeLink.href = homeURL;
 }
